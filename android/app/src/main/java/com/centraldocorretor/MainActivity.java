@@ -1,4 +1,4 @@
-package construtoradiamond.centraldocorretor;
+package br.com.construtoradiamond.centraldocorretor;
 
 import com.facebook.react.ReactActivity;
 
