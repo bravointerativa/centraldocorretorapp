@@ -1,4 +1,33 @@
 {
-  "name": "centraldocorretor",
-  "displayName": "centraldocorretor"
+  "expo": {
+    "name": "Central do Corretor Diamond",
+    "slug": "appcc",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#242424"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#242424"
+      },
+      "package": "ccdiamondbr.com.centraldocorretor"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
 }
