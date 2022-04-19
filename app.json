@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Central do Corretor Diamond",
-    "slug": "appcc",
+    "name": "centraldocorretorapp",
+    "slug": "centraldocorretorapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,14 +17,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "br.com.construtoradiamond.centraldocorretor"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#242424"
       },
-      "package": "ccdiamondbr.com.centraldocorretor"
+      "package": "br.com.construtoradiamond.centraldocorretor"
     },
     "web": {
       "favicon": "./assets/favicon.png"
