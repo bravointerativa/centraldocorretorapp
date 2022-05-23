@@ -1,9 +1,7 @@
 workflows:
-  android:
-    name: build, test & publish Android version
+  my-workflow:
+    working_directory: mobile
     scripts:
-      - ...
-  ios:
-    name: build, test & publish iOS version
-    scripts:
-      - ...
+      - name: Build iOS
+        working_directory: mobile/ios
+        script: ...
