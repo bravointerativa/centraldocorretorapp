@@ -1,10 +1,12 @@
-publishing:
-    app_store_connect:
-      api_key: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQglFJ+NOBNXO3x8bcCWt9s6ahgSpMTEKvXFFL/zw4c9kKgCgYIKoZIzj0DAQehRANCAAR8ogvtW8TMsjNpyKs3M35/9+V8+zCr7+0+SCl7IrjZ/8F/RMYUHUxuMtMCQm/602XF5R/P2nj0S+YtNUQJVjPC
-      key_id: 9ZAY8TX227
-      issuer_id: 1b3468b7-131d-4535-a545-4e2b4c7ed1e1
-      submit_to_testflight: true
-      beta_groups:
-        - Testes
-        - App Store Connect Users
-        - Teste App
+workflows:
+  my-workflow:
+    publishing:
+      app_store_connect:
+        api_key: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQglFJ+NOBNXO3x8bcCWt9s6ahgSpMTEKvXFFL/zw4c9kKgCgYIKoZIzj0DAQehRANCAAR8ogvtW8TMsjNpyKs3M35/9+V8+zCr7+0+SCl7IrjZ/8F/RMYUHUxuMtMCQm/602XF5R/P2nj0S+YtNUQJVjPC
+        key_id: 9ZAY8TX227
+        issuer_id: 1b3468b7-131d-4535-a545-4e2b4c7ed1e1
+        submit_to_testflight: true
+        beta_groups:
+          - Testes
+          - App Store Connect Users
+          - Teste App
