@@ -8,3 +8,5 @@ workflows:
         submit_to_testflight: true
         beta_groups:
           - Testes
+          - App Store Connect Users
+          - Teste App
