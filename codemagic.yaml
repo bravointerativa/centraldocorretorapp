@@ -7,4 +7,4 @@ workflows:
         issuer_id: 1b3468b7-131d-4535-a545-4e2b4c7ed1e1
         submit_to_testflight: true
         beta_groups:
-          - Beta Testers
+          - Testes
