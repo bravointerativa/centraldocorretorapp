@@ -1,6 +1,6 @@
 workflows:
     react-native:
-        name: reactnativeappsigning
+        name: React Native App
         environment:
             vars:
                 XCODE_WORKSPACE: "CentralDoCorretorApp"
@@ -8,7 +8,7 @@ workflows:
             node: latest
         scripts:
             - npm install
-            - echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"
+            - echo "sdk.dir=$HOME/programs/android-sdk-macosx" > "$FCI_BUILD_DIR/android/local.properties"
             - |
                 # build Android
                 cd android
@@ -21,3 +21,4 @@ workflows:
         artifacts:
             - android/app/build/outputs/**/**/*.apk
             - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+            - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
