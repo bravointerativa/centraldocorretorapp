@@ -5,8 +5,8 @@ workflows:
       xcode: latest
       cocoapods: default
       vars:
-          XCODE_PROJECT: "Central do Corretor Diamond.xcodeproj" # <-- Put the name of your project here. 
-          XCODE_SCHEME: "Central do Corretor Diamond" # <-- Put the name of your scheme here.
+          XCODE_PROJECT: "ConstrutoraDiamond.xcodeproj" # <-- Put the name of your project here. 
+          XCODE_SCHEME: "ConstrutoraDiamond" # <-- Put the name of your scheme here.
     scripts:
       - name: Run tests
         script: |
