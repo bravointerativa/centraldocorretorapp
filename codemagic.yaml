@@ -1,34 +1,12 @@
 workflows:
-  ios-project-debug: # workflow ID
-    name: iOS debug # workflow name
-    environment:
-      xcode: latest
-      cocoapods: default
-      vars:
-          XCODE_PROJECT: "XCODE_PROJECT.xcodeproj" # <-- Put the name of your project here. 
-          XCODE_SCHEME: "XCODE_SCHEME" # <-- Put the name of your scheme here.
-    scripts:
-      - name: Run tests
-        script: |
-          xcodebuild \
-          -project "$XCODE_PROJECT" \
-          -scheme "$XCODE_SCHEME" \
-          -sdk iphonesimulator \
-          -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.1' \
-          clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO          
-      - name: Build debug app
-        script: |
-          xcodebuild build -project "$XCODE_PROJECT" \
-          -scheme "$XCODE_SCHEME" \
-          CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO          
-    artifacts:
-      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+  my-workflow:
     publishing:
-      email:
-        recipients:
-          - daniela.silva6@universo.univates.br
       app_store_connect:
         api_key: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQglFJ+NOBNXO3x8bcCWt9s6ahgSpMTEKvXFFL/zw4c9kKgCgYIKoZIzj0DAQehRANCAAR8ogvtW8TMsjNpyKs3M35/9+V8+zCr7+0+SCl7IrjZ/8F/RMYUHUxuMtMCQm/602XF5R/P2nj0S+YtNUQJVjPC
         key_id: 9ZAY8TX227
         issuer_id: 1b3468b7-131d-4535-a545-4e2b4c7ed1e1
         submit_to_testflight: true
+        beta_groups:
+          - Testes
+          - App Store Connect Users
+          - Teste App
