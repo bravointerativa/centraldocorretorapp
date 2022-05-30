@@ -12,3 +12,7 @@ workflows:
         key_id: 9ZAY8TX227
         issuer_id: 1b3468b7-131d-4535-a545-4e2b4c7ed1e1
         submit_to_testflight: true
+        beta_groups:
+          - Testes
+          - App Store Connect Users
+          - Teste App
