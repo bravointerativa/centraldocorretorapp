@@ -2,4 +2,6 @@ workflows:
   ios-project-debug: # workflow ID
     name: iOS debug # workflow name
     scripts:
-      - xcode-project build-ipa --workspace "ios/CentralDoCorretorApp.xcworkspace" --scheme "CentralDoCorretorApp"
+      - name: Run tests
+        script: |
+          xcode-project build-ipa --workspace "ios/CentralDoCorretorApp.xcworkspace" --scheme "CentralDoCorretorApp"      
