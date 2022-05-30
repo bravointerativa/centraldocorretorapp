@@ -16,6 +16,7 @@ workflows:
         scripts:
             - npm install
             - echo "sdk.dir=$HOME/programs/android-sdk-macosx" > "$CM_BUILD_DIR/android/local.properties"                
+            - |
              # set up signing certificate
              echo $CM_CERTIFICATE | base64 --decode > /tmp/certificate.p12
              keychain add-certificates --certificate /tmp/certificate.p12 --certificate-password $CM_CERTIFICATE_PASSWORD             
