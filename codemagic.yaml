@@ -1,31 +1,12 @@
 workflows:
-    react-native:
-        name: React Native App
-        environment:
-            vars:
-                XCODE_WORKSPACE: "CentralDoCorretorApp"
-                XCODE_SCHEME: "CentralDoCorretorApp"
-                CM_KEYSTORE: Encrypted(...)
-                CM_KEYSTORE_PASSWORD: Encrypted(...)
-                CM_KEY_PASSWORD: Encrypted(...)
-                CM_KEY_ALIAS: Encrypted(...)
-                CM_CERTIFICATE: Encrypted(...)
-                CM_CERTIFICATE_PASSWORD: Encrypted(...)
-                CM_PROVISIONING_PROFILE: Encrypted(...)
-            node: latest
-        scripts:
-            - npm install
-            - echo "sdk.dir=$HOME/programs/android-sdk-macosx" > "$CM_BUILD_DIR/android/local.properties"                
-            - |
-             # set up signing certificate
-             echo $CM_CERTIFICATE | base64 --decode > /tmp/certificate.p12
-             keychain add-certificates --certificate /tmp/certificate.p12 --certificate-password $CM_CERTIFICATE_PASSWORD             
-            - xcode-project use-profiles
-            - |
-                # build iOS
-                cd ios
-                pod install                
-            - xcode-project build-ipa --workspace "ios/$XCODE_WORKSPACE.xcworkspace" --scheme "$XCODE_SCHEME"
-        artifacts:
-            - android/app/build/outputs/**/**/*.apk
-            - build/ios/ipa
+  ios-project-debug: # workflow ID
+    name: iOS debug # workflow name          
+    artifacts:
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
+    publishing:
+      app_store_connect:
+        api_key: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQglFJ+NOBNXO3x8bcCWt9s6ahgSpMTEKvXFFL/zw4c9kKgCgYIKoZIzj0DAQehRANCAAR8ogvtW8TMsjNpyKs3M35/9+V8+zCr7+0+SCl7IrjZ/8F/RMYUHUxuMtMCQm/602XF5R/P2nj0S+YtNUQJVjPC
+        key_id: 9ZAY8TX227
+        issuer_id: 1b3468b7-131d-4535-a545-4e2b4c7ed1e1
+        submit_to_testflight: true
