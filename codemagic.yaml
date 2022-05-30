@@ -16,7 +16,7 @@ react-native-ios:
             vars:
                 XCODE_WORKSPACE: "YOUR_WORKSPACE_NAME.xcworkspace" # <-- Put the name of your Xcode workspace here
                 XCODE_SCHEME: "YOUR_SCHEME_NAME" # <-- Put the name of your Xcode scheme here
-                BUNDLE_ID: "YOUR_BUNDLE_ID_HERE" # <-- Put your Bundle Id here e.g com.domain.myapp
+                BUNDLE_ID: "br.com.construtoradiamond.centraldocorretor" # <-- Put your Bundle Id here e.g com.domain.myapp
                 APP_STORE_APP_ID: 1568491169 # <-- Put the app id number here. This is found in App Store Connect > App > General > App Information
             node: v16.14.0
             xcode: 12.5
