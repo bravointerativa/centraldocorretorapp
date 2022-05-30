@@ -1,5 +1,17 @@
 workflows:
-  my-workflow:
-    scripts:
+    react-native:
+        name: reactnativeappsigning
+        environment:
+            vars:
+                XCODE_WORKSPACE: "CentralDoCorretorApp"
+                XCODE_SCHEME: "CentralDoCorretorApp"
+            node: latest
+        scripts:
+            - npm install
             - |
-                - xcode-project build-ipa --workspace "ios/CentralDoCorretorApp.xcworkspace" --scheme "CentralDoCorretorApp"
+                # build iOS
+                cd ios
+                pod install
+                xcodebuild build -workspace "$XCODE_WORKSPACE.xcworkspace" -scheme "$XCODE_SCHEME" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+        artifacts:
+            - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
