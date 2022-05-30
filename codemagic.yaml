@@ -21,4 +21,3 @@ workflows:
         artifacts:
             - android/app/build/outputs/**/**/*.apk
             - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
-            - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
