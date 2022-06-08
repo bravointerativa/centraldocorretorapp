@@ -1,5 +1,10 @@
 workflows:
   my-workflow:
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
     publishing:
       app_store_connect:
         api_key: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQglFJ+NOBNXO3x8bcCWt9s6ahgSpMTEKvXFFL/zw4c9kKgCgYIKoZIzj0DAQehRANCAAR8ogvtW8TMsjNpyKs3M35/9+V8+zCr7+0+SCl7IrjZ/8F/RMYUHUxuMtMCQm/602XF5R/P2nj0S+YtNUQJVjPC
