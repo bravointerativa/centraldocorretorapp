@@ -30,10 +30,10 @@ workflows:
                     npm install
       - name: Install rbenv
         script: |
-                    rbenv install 2.7.4-p643
+                    rbenv install 2.7.4
       - name: Local rbenv
         script: |
-                    rbenv local 2.7.4-p643
+                    rbenv local 2.7.4
       - name: Install CocoaPods dependencies
         script: |
                     sudo gem install cocoapods
