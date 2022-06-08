@@ -30,6 +30,9 @@ workflows:
                     npm install
       - name: Install CocoaPods dependencies
         script: |
+                    sudo gem install cocoapods
+      - name: Install CocoaPods
+        script: |
                     cd ios && pod install
       - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
         script: |
