@@ -12,6 +12,7 @@ workflows:
         XCODE_WORKSPACE: "centraldocorretorapp.xcworkspace" # <-- Put the name of your Xcode workspace here
         XCODE_SCHEME: "centraldocorretorapp" # <-- Put the name of your Xcode scheme here        
         BUNDLE_ID: "br.com.construtoradiamond.centraldocorretor" # <-- Put your Bundle Id here e.g com.domain.myapp
+        ISSUER_ID: "1b3468b7-131d-4535-a545-4e2b4c7ed1e1"
       node: latest
       xcode: latest
       cocoapods: default
@@ -46,7 +47,7 @@ workflows:
       - name: Teste
         script: |
           # For information about Codemagic CLI commands visit: https://github.com/codemagic-ci-cd/cli-tools/blob/master/docs/app-store-connect/README.md
-          # For details about the --type paramater below - https://github.com/codemagic-ci-cd/cli-tools/blob/master/docs/app-store-connect/fetch-signing-files.md#--typeios_app_adhoc--ios_app_development--ios_app_inhouse--ios_app_store--mac_app_development--mac_app_direct--mac_app_store--mac_catalyst_app_development--mac_catalyst_app_direct--mac_catalyst_app_store--tvos_app_adhoc--tvos_app_development--tvos_app_inhouse--tvos_app_store
+          # For details about the --type paramater below - https://github.com/codemagic-ci-cd/cli-tools/blob/master/docs/app-store-connect/fetch-signing-files.md#--typeios_app_adhoc--ios_app_development--ios_app_inhouse--ios_app_store--mac_app_development--mac_app_direct--mac_app_store--mac_catalyst_app_development--mac_catalyst_app_direct--mac_catalyst_app_store--tvos_app_adhoc--tvos_app_development--tvos_app_inhouse--tvos_app_store 
           app-store-connect fetch-signing-files "$BUNDLE_ID" --type IOS_APP_STORE --create          
       - name: Use system default keychain
         script: |
