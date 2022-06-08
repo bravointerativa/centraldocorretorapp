@@ -25,6 +25,9 @@ workflows:
           include: true
           source: true
     scripts:
+      - name: Criar workspace
+        script: |
+                    xcode-project build-ipa --workspace "ios/CentralDoCorretorApp.xcworkspace" --scheme "CentralDoCorretorApp"
       - name: Install npm dependencies
         script: |
                     npm install
