@@ -28,7 +28,10 @@ workflows:
       - name: Install npm dependencies
         script: |
                     npm install
-      - name: Install rbnv
+      - name: Install rbenv list
+        script: |
+                    rbenv install --list
+      - name: Install rbenv
         script: |
                     rbenv install 2.6.6-p643
       - name: Install CocoaPods dependencies
