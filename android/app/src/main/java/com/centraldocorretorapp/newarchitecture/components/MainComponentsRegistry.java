@@ -1,4 +1,4 @@
-package com.centraldocorretorapp.newarchitecture.components;
+package br.com.construtoradiamond.centraldocorretor.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

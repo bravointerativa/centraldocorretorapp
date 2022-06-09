@@ -1,4 +1,4 @@
-package com.centraldocorretorapp.newarchitecture;
+package br.com.construtoradiamond.centraldocorretor.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.centraldocorretorapp.BuildConfig;
-import com.centraldocorretorapp.newarchitecture.components.MainComponentsRegistry;
-import com.centraldocorretorapp.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import br.com.construtoradiamond.centraldocorretor.BuildConfig;
+import br.com.construtoradiamond.centraldocorretor.newarchitecture.components.MainComponentsRegistry;
+import br.com.construtoradiamond.centraldocorretor.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

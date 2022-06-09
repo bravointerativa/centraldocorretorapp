@@ -1,4 +1,4 @@
-package com.centraldocorretorapp.newarchitecture.modules;
+package br.com.construtoradiamond.centraldocorretor.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
