@@ -12,12 +12,6 @@ workflows:
         XCODE_WORKSPACE: "centraldocorretorapp.xcworkspace" # <-- Put the name of your Xcode workspace here
         XCODE_SCHEME: "centraldocorretorapp" # <-- Put the name of your Xcode scheme here        
         BUNDLE_ID: "br.com.construtoradiamond.centraldocorretor" # <-- Put your Bundle Id here e.g com.domain.myapp
-        ISSUER_ID: "1b3468b7-131d-4535-a545-4e2b4c7ed1e1"
-        APP_STORE_APP_ID: 1568491169
-        APP_STORE_CONNECT_KEY_IDENTIFIER: 9ZAY8TX227
-        APP_STORE_CONNECT_ISSUER_ID: 1b3468b7-131d-4535-a545-4e2b4c7ed1e1
-        APP_STORE_CONNECT_PRIVATE_KEY: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQglFJ+NOBNXO3x8bcCWt9s6ahgSpMTEKvXFFL/zw4c9kKgCgYIKoZIzj0DAQehRANCAAR8ogvtW8TMsjNpyKs3M35/9+V8+zCr7+0+SCl7IrjZ/8F/RMYUHUxuMtMCQm/602XF5R/P2nj0S+YtNUQJVjPC
-        CERTIFICATE_PRIVATE_KEY:
       node: latest
       xcode: latest
       cocoapods: default
