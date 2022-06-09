@@ -1,69 +1,5 @@
 workflows:
   react-native-ios:
-    name: React Native iOS
-    max_build_duration: 120
-    instance_type: mac_mini
-    environment:
-      groups:
-        - appstore_credentials # <-- (Includes APP_STORE_CONNECT_ISSUER_ID, APP_STORE_CONNECT_KEY_IDENTIFIER, APP_STORE_CONNECT_PRIVATE_KEY, CERTIFICATE_PRIVATE_KEY) - https://docs.codemagic.io/code-signing-yaml/signing-ios/
-        - ios_config # <-- (Includes APP_STORE_APP_ID - Put the app id number here. This is found in App Store Connect > App > General > App Information)
-      # Add the group environment variables in Codemagic UI (either in Application/Team variables) - https://docs.codemagic.io/variables/environment-variable-groups/
-      vars:
-        XCODE_WORKSPACE: "centraldocorretorapp.xcworkspace" # <-- Put the name of your Xcode workspace here
-        XCODE_SCHEME: "centraldocorretorapp" # <-- Put the name of your Xcode scheme here        
-        BUNDLE_ID: "br.com.construtoradiamond.centraldocorretor" # <-- Put your Bundle Id here e.g com.domain.myapp
-        ISSUER_ID: "1b3468b7-131d-4535-a545-4e2b4c7ed1e1"
-        APP_STORE_APP_ID: "1568491169"
-      node: latest
-      xcode: latest
-      cocoapods: default
-    triggering:
-      events:
-        - push
-        - tag
-        - pull_request
-      branch_patterns:
-        - pattern: develop
-          include: true
-          source: true
-    scripts:
-      - name: Install npm dependencies
-        script: |
-                    npm install
-      - name: Install rbenv
-        script: |
-                    rbenv install 2.7.4
-      - name: Local rbenv
-        script: |
-                    rbenv local 2.7.4
-      - name: Install CocoaPods dependencies
-        script: |
-                    sudo gem install cocoapods
-      - name: Install CocoaPods
-        script: |
-                    cd ios && pod install
-      - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
-        script: |
-                    keychain initialize
-      - name: Increment build number
-        script: |
-          #!/bin/sh
-          set -e
-          set -x
-          cd $CM_BUILD_DIR/ios
-          # agvtool new-version -all $(($BUILD_NUMBER + 1))
-          agvtool new-version -all $(($(app-store-connect get-latest-testflight-build-number "$APP_STORE_APP_ID") + 1))          
-      - name: Set up code signing settings on Xcode project
-        script: |
-                    xcode-project use-profiles --warn-only
-      - name: Build ipa for distribution
-        script: |
-                    xcode-project build-ipa --workspace "$CM_BUILD_DIR/ios/$XCODE_WORKSPACE" --scheme "$XCODE_SCHEME" 
-    artifacts:
-      - build/ios/ipa/*.ipa
-      - /tmp/xcodebuild_logs/*.log
-      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
-      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
     publishing:
       # See the following link for details about email publishing - https://docs.codemagic.io/yaml-publishing/email
       email:
@@ -81,6 +17,6 @@ workflows:
           failure: false              # To not receive a notification when a build fails
       app_store_connect:
           api_key: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQglFJ+NOBNXO3x8bcCWt9s6ahgSpMTEKvXFFL/zw4c9kKgCgYIKoZIzj0DAQehRANCAAR8ogvtW8TMsjNpyKs3M35/9+V8+zCr7+0+SCl7IrjZ/8F/RMYUHUxuMtMCQm/602XF5R/P2nj0S+YtNUQJVjPC      # Contents of the API key, can also reference environment variable such as $APP_STORE_CONNECT_PRIVATE_KEY
-          key_id: "1568491169"    # Alphanumeric value that identifies the API key, can also reference environment variable such as $APP_STORE_CONNECT_KEY_IDENTIFIER
+          key_id: 9ZAY8TX227    # Alphanumeric value that identifies the API key, can also reference environment variable such as $APP_STORE_CONNECT_KEY_IDENTIFIER
           issuer_id: 1b3468b7-131d-4535-a545-4e2b4c7ed1e1       # Alphanumeric value that identifies who created the API key, can also reference environment variable such as $APP_STORE_CONNECT_ISSUER_ID
           submit_to_testflight: true                   # Optional boolean, defaults to false. Whether or not to submit the uploaded build to TestFlight to automatically enroll your build to beta testers.  
