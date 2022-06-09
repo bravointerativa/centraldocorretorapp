@@ -13,6 +13,7 @@ workflows:
         XCODE_SCHEME: "centraldocorretorapp" # <-- Put the name of your Xcode scheme here        
         BUNDLE_ID: "br.com.construtoradiamond.centraldocorretor" # <-- Put your Bundle Id here e.g com.domain.myapp
         ISSUER_ID: "1b3468b7-131d-4535-a545-4e2b4c7ed1e1"
+        APP_STORE_APP_ID: "1568491169"
       node: latest
       xcode: latest
       cocoapods: default
@@ -43,10 +44,7 @@ workflows:
                     cd ios && pod install
       - name: Set up keychain to be used for codesigning using Codemagic CLI 'keychain' command
         script: |
-                    keychain initialize      
-      - name: Use system default keychain
-        script: |
-                    keychain add-certificates
+                    keychain initialize
       - name: Increment build number
         script: |
           #!/bin/sh
